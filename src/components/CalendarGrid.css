@@ -1,0 +1,120 @@
+.calendar-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.calendar-card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm);
+}
+
+.calendar-card__month {
+  font-size: 18px;
+  letter-spacing: 0.01em;
+}
+
+.calendar-card__nav-btn {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-sm);
+  font-size: 18px;
+  line-height: 1;
+  color: var(--color-ink);
+}
+
+.calendar-card__nav-btn:hover {
+  border-color: var(--color-border-strong);
+  background: var(--color-bg);
+}
+
+.calendar-card__weekdays,
+.calendar-card__row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-card__weekday {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  padding-bottom: var(--space-xs);
+}
+
+.calendar-card__day {
+  position: relative;
+  aspect-ratio: 1;
+  margin: 2px;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: var(--radius-sm);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  transition: background-color 120ms ease, border-color 120ms ease;
+}
+
+.calendar-card__day:hover {
+  background: var(--color-bg);
+  border-color: var(--color-border);
+}
+
+.calendar-card__day-number {
+  font-family: var(--font-mono);
+  font-size: 13px;
+}
+
+.calendar-card__day--muted .calendar-card__day-number {
+  color: var(--color-ink-muted);
+  opacity: 0.55;
+}
+
+.calendar-card__day--today {
+  border-color: var(--color-border-strong);
+}
+
+.calendar-card__day--today .calendar-card__day-number {
+  font-weight: 600;
+}
+
+.calendar-card__day--selected {
+  background: var(--color-accent);
+}
+
+.calendar-card__day--selected .calendar-card__day-number {
+  color: var(--color-accent-contrast);
+}
+
+/* "Ledger stamp" — the count badge nods to a tally mark from the paper
+   system this widget replaces, kept in the same ink tone as everything
+   else so it reads as a detail, not decoration. */
+.calendar-card__day-badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  line-height: 1;
+  min-width: 14px;
+  padding: 2px 3px;
+  border: 1px solid var(--color-border-strong);
+  border-radius: 3px;
+  color: var(--color-ink-muted);
+  background: var(--color-surface);
+}
+
+.calendar-card__day--selected .calendar-card__day-badge {
+  border-color: var(--color-accent-contrast);
+  color: var(--color-accent-contrast);
+  background: transparent;
+}
